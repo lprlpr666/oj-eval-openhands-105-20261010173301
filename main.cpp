@@ -1,19 +1,18 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <cstdio>
+#include <cstring>
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    int n,m; if(!(cin>>n>>m)) return 0;
-    int target = n - m;
-    vector<double> E(n+1, 0.0);
-    for(int k = target+1; k <= n; ++k){
+    int n, m;
+    if (scanf("%d %d", &n, &m) != 2) return 0;
+    int target = n - m; // remaining apples when stop
+    double E[21]; // n <= 20
+    memset(E, 0, sizeof(E));
+    for (int k = target + 1; k <= n; ++k) {
         double sum = 0.0;
-        for(int x = 1; x <= k; ++x){
+        for (int x = 1; x <= k; ++x) {
             sum += E[k - x];
         }
         E[k] = 1.0 + sum / k;
     }
-    cout.setf(ios::fixed);
-    cout << setprecision(2) << E[n] << "\n";
+    printf("%.2f\n", E[n]);
     return 0;
 }
