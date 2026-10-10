@@ -1,5 +1,7 @@
 # Problem 105 - 小源吃苹果
 
+Solution completed.
+
 **ACMOJ Problem ID**: 1034
 
 ## Table of Contents
